@@ -13,15 +13,7 @@ app.use(express.json({ limit: '1mb' }));
 //Routes
 app.use('/', require('./routes/index'));
 
-app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    } else {
-      next();
-    }
-  });
-
-  //Setup Server
+//Setup Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));
