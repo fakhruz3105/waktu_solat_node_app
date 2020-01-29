@@ -6,32 +6,36 @@
         console.log('Geolocation available');
         navigator.geolocation.getCurrentPosition(async position => {
             lat = position.coords.latitude;
-            lon = position.coords.longitude;        
+            lon = position.coords.longitude;
+            getTime(lat, lon);      
         });
     } else {
         console.log('Geolocation unavailable');
+        getTime(lat, lon);
     }
 
-    const data = { lat, lon };
-    document.getElementById('latitude').textContent = lat;
-    document.getElementById('longitude').textContent = lon;
+    async function getTime(lat, lon) {
+        const data = { lat, lon };
+        document.getElementById('latitude').textContent = lat;
+        document.getElementById('longitude').textContent = lon;
 
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    const res = await fetch('/api', options);
-    const json = await res.json();
-    document.getElementById('locations').textContent = json.locations;
-    document.getElementById('date').textContent = json.prayer_times.date;
-    document.getElementById('imsak').textContent = json.prayer_times.imsak;
-    document.getElementById('subuh').textContent = json.prayer_times.subuh;
-    document.getElementById('syuruk').textContent = json.prayer_times.syuruk;
-    document.getElementById('zohor').textContent = json.prayer_times.zohor;
-    document.getElementById('asar').textContent = json.prayer_times.asar;
-    document.getElementById('maghrib').textContent = json.prayer_times.maghrib;
-    document.getElementById('isyak').textContent = json.prayer_times.isyak;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+        const res = await fetch('/api', options);
+        const json = await res.json();
+        document.getElementById('locations').textContent = json.locations;
+        document.getElementById('date').textContent = json.prayer_times.date;
+        document.getElementById('imsak').textContent = json.prayer_times.imsak;
+        document.getElementById('subuh').textContent = json.prayer_times.subuh;
+        document.getElementById('syuruk').textContent = json.prayer_times.syuruk;
+        document.getElementById('zohor').textContent = json.prayer_times.zohor;
+        document.getElementById('asar').textContent = json.prayer_times.asar;
+        document.getElementById('maghrib').textContent = json.prayer_times.maghrib;
+        document.getElementById('isyak').textContent = json.prayer_times.isyak;
+    }
 </script>
