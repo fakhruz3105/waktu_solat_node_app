@@ -1,0 +1,47 @@
+<%- include('script/home.ejs') %>
+
+<h1 class="text-center mb-4 mt-4">Waktu Solat App</h1>
+<div style="margin-right: 20%; margin-left: 20%;">
+    <p>Lokasi Anda (<span id="latitude"></span>, <span id="longitude"></span>)</p>
+    <p><span id="locations"></span></p>
+    <p>Waktu Solat Hari Ini: <span id="date"></span></p>
+
+    <table class="table table-striped table-bordered">
+        <thead style="text-align: center;">
+            <tr>
+                <th style="width: 50%;">Waktu</th>
+                <th style="width: 50%;">Masa</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr>
+                <td>Imsak</td>
+                <td><span id="imsak"></span></td>
+            </tr>
+            <tr>
+                <td>Subuh</td>
+                <td><span id="subuh"></span></td>
+            </tr>
+            <tr>
+                <td>Syuruk</td>
+                <td><span id="syuruk"></span></td>
+            </tr>
+            <tr>
+                <td>Zohor</td>
+                <td><span id="zohor"></span></td>
+            </tr>
+            <tr>
+                <td>Asar</td>
+                <td><span id="asar"></span></td>
+            </tr>
+            <tr>
+                <td>Maghrib</td>
+                <td><span id="maghrib"></span></td>
+            </tr>
+            <tr>
+                <td>Isyak</td>
+                <td><span id="isyak"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
