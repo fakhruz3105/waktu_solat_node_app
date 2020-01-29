@@ -1,6 +1,5 @@
 <script>
-    let lat = 3.139003;
-    let lon = 101.686855;
+    let lat, lon;
 
     if ('geolocation' in navigator) {
         console.log('Geolocation available');
@@ -8,9 +7,19 @@
             lat = position.coords.latitude;
             lon = position.coords.longitude;
             getTime(lat, lon);      
+        }, error => {
+            if(error.message === 'User denied Geolocation') {
+                lat = 3.139003;
+                lon = 101.686855;
+                getTime(lat, lon);
+                document.getElementById('error').textContent = 'Please enable your location for local prayer time';
+                document.getElementById('defLocation').textContent = '(Location is set to default)';
+            }
         });
     } else {
         console.log('Geolocation unavailable');
+        lat = 3.139003;
+        lon = 101.686855;
         getTime(lat, lon);
     }
 
