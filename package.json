@@ -20,7 +20,7 @@
   "homepage": "https://github.com/fakhruz3105/waktu_solat_node_app#readme",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.0",
     "node-fetch": "^2.6.0"
   },
